@@ -3,7 +3,6 @@ from scrapy.commands import ScrapyCommand
 from scrapy.exceptions import UsageError
 from scrapy.utils.conf import arglist_to_dict
 from scrapy.utils.python import without_none_values
-from scrapy.utils.project import get_project_settings
 
 
 class Command(ScrapyCommand):
