@@ -48,8 +48,8 @@ class Command(ScrapyCommand):
 
     def run(self, args, opts):
         argv = opts.spargs.get('NAME')
-        # 自定义参数：执行多个或全部爬虫
-        # example: scrapy crawlall -a NAME=spider_name1,spider_name2
+        # 自定义参数:执行多个或全部爬虫
+        # example: scrapy crawlall -a NAME=spider_name1,spider_name2,spider_name3
         if argv:
             spider_list = [i for i in argv.split(',')]
         else:
