@@ -103,18 +103,6 @@ class PolicyCrawlerSpiderMiddleware():
         # Called when a spider or process_spider_input() method
         # (from other spider middleware) raises an exception.
         # Should return either None or an iterable of Request or item objects.
-
-        # print(exception)
-        # print(response.status,response.url)
-        # # RETRY_HTTP_CODES = [500, 502, 503, 504, 508, 400, 403, 404, 408, 520]
-
-        # if response.status != 404:
-        #     self.col = self.db['spider_error']
-        #     error_data={"_id":response.url,"url":response.url,"status":response.status,"spider_name":spider.name,"db":spider.collection,"table_name":spider.collection + '_error',"exception":str(exception)}
-        #     try:
-        #         self.col.insert_one(dict(error_data))
-        #     except pymongo.errors.DuplicateKeyError as e:
-        #         DropItem(f'{e.args[0]}')
         return None
 
 
