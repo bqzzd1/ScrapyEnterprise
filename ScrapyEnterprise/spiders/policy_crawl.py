@@ -5,15 +5,11 @@ from scrapy import FormRequest
 from urllib.parse import urlencode
 
 from scrapy.http import Request, HtmlResponse
-from policy_crawler.items import PolicyItem,Attachment
-from policy_crawler.spiders.utils import prepare_request, pq
-from policy_crawler.spiders.utils import pq, prepare_request
-
-from policy_crawler.spiders.utils import common_parse
+from ScrapyEnterprise.items import PolicyItem,Attachment
 
 
 
-DB_COLLECTION = 'policy_data'
+DB_COLLECTION = 'policy_data1'
 
 
 class AnHuiSpider1(scrapy.Spider):
@@ -74,8 +70,8 @@ class AnHuiSpider1(scrapy.Spider):
                 meta={'url': 'http://xc.ahzwfw.gov.cn/hqw-bsdt-web/static/zcdx/detail?id='+i['serviceId'] },
                 cb_kwargs={
                     'title':i['serviceName'],
-                    'start_time': i['applyStartTime'],
-                    'end_time': i['applyEndTime'],
+                    'posting_time': i['applyStartTime'],
+                    'closing_time': i['applyEndTime'],
                     'district':'安徽省-宣城市-'+i['areaName'],
                 },
                 dont_filter=True
@@ -85,7 +81,7 @@ class AnHuiSpider1(scrapy.Spider):
         return PolicyItem({
             'detailUrl': response.meta['url'],
             'content': str(response.json()['data']),
-            # 'plain_text': plain_text,
+            'plain_text': '',
             'department': self.website_name,
             # 'fujian':fujian,
             # 'images': images,

@@ -17,7 +17,7 @@ from scrapy.spidermiddlewares.httperror import HttpError
 
 
 
-class PolicyCrawlerSpiderMiddleware():
+class ScrapyCrawlerSpiderMiddleware():
     """
     爬虫中间件
     """
@@ -206,7 +206,7 @@ class FailLogger(object):
             except pymongo.errors.DuplicateKeyError as e:
                 DropItem(f'{e.args[0]}')
         # 将错误写入文件
-        # with open("errlog.txt", "a") as f:
+        # with open("error.log", "a") as f:
         #     f.write(spider.name + "\n")
         #     f.write(response.url + "\n")
         #     f.write(failure.getTraceback() + "\n")
